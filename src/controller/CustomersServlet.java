@@ -19,9 +19,9 @@ public class CustomersServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/views/customers/List.jsp");
-        dispatcher.forward(request,response);
         List<Customer> customers = CustomersService.getALLCustomers();
         request.setAttribute("customers" , customers);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/views/customers/List.jsp");
+        dispatcher.forward(request,response);
     }
 }
